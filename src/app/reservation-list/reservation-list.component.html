@@ -1,0 +1,7 @@
+<app-home></app-home>
+
+<ul *ngFor="let reservation of reservations">
+  <li>{{ reservation.guestName }}</li>
+  <button (click)="onDelete(reservation.id)">Delete</button>
+  <button [routerLink]="['/list', reservation.id]">edit</button>
+</ul>

@@ -1,0 +1,115 @@
+<div class="flex flex-col justify-center items-center">
+  <h2 class="text-4xl mt-10 mb-6">Create Reservation</h2>
+  <form
+    [formGroup]="reservationForm"
+    (submit)="onSubmit()"
+    class="w-full max-w-lg"
+  >
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-first-name"
+        >
+          Guest name
+        </label>
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+          id="grid-first-name"
+          type="text"
+          formControlName="guestName"
+        />
+        <small
+          *ngIf="
+            reservationForm.get('guestName')?.invalid &&
+            reservationForm.get('guestName')?.touched
+          "
+          class="text-red-500 text-xs italic"
+          >Please fill out this field.</small
+        >
+      </div>
+      <div class="w-full md:w-1/2 px-3">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-last-name"
+        >
+          guestEmail
+        </label>
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-last-name"
+          type="email"
+          placeholder="guestEmail"
+          formControlName="guestEmail"
+        />
+        <small
+          *ngIf="
+            reservationForm.get('guestEmail')?.invalid &&
+            reservationForm.get('guestEmail')?.touched
+          "
+          class="text-red-500 text-xs italic"
+          >Please fill out this field.</small
+        >
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password"
+        >
+          check-In Date
+        </label>
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-password"
+          type="date"
+          placeholder="checkInDate"
+          formControlName="checkInDate"
+        />
+        <small
+          *ngIf="
+            reservationForm.get('checkInDate')?.invalid &&
+            reservationForm.get('checkInDate')?.touched
+          "
+          class="text-gray-600 text-xs italic"
+        >
+          Make it as long and as crazy as you'd like
+        </small>
+      </div>
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="w-full px-3">
+        <label
+          class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          for="grid-password"
+        >
+          Room Number
+        </label>
+        <input
+          class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          id="grid-password"
+          type="number"
+          placeholder="roomNumber"
+          formControlName="roomNumber"
+        />
+        <small
+          *ngIf="
+            reservationForm.get('roomNumber')?.invalid &&
+            reservationForm.get('roomNumber')?.touched
+          "
+          class="text-gray-600 text-xs italic"
+        >
+          Make it as long and as crazy as you'd like
+        </small>
+      </div>
+    </div>
+    <button
+      class="rounded px-4 py-2"
+      type="submit"
+      [disabled]="reservationForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
